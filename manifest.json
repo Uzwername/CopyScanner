@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "CopyScanner",
+    "version": "1.0.0",
+    "description": "Copy only what is needed without searching or hand-picking.",
+    "permissions": ["activeTab", "contextMenus", "clipboardRead", "clipboardWrite"],
+    "browser_action": {
+        "default_title": "CopyScanner",
+        "default_popup": "build/default-popup.html"
+    },
+    "background": {
+        "scripts": ["build/background.bundle.js"],
+        "persistent": false
+    },
+    "commands": {
+        "copy-selectively": {
+            "description": "Copy text selectively",
+            "suggested_key": {
+                "default": "Alt+C",
+                "mac": "Alt+C"
+            }
+        }
+    }
+}
