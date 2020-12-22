@@ -1,5 +1,5 @@
 export const REGISTERED_COMMANDS_NAMES = new Set<string>([
-    "copy-selectively",
+  "copy-selectively",
 ]);
 
 // Context menu id

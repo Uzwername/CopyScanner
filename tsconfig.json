@@ -1,27 +1,27 @@
 {
-    "compilerOptions": {
-        "baseUrl": ".",
-        "outDir": "./build/",
-        "module": "es6",
-        "allowSyntheticDefaultImports": true,
-        "target": "es5",
-        "strict": true,
-        "sourceMap": true,
-        "jsx": "preserve",
-        "paths": {
-            "@/*": [
-                "src/*"
-            ],
-            "$root/*": [
-                "./*"
-            ]
-        }
-    },
-    "include": [
-        "src/",
-    ],
-    "exclude": [
-        "node_modules",
-        "build"
-    ]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./build/",
+    "module": "es6",
+    "allowSyntheticDefaultImports": true,
+    "target": "es5",
+    "strict": true,
+    "sourceMap": true,
+    "jsx": "preserve",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "$root/*": [
+        "./*"
+      ]
+    }
+  },
+  "include": [
+    "src/",
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
 }

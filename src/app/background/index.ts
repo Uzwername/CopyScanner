@@ -13,18 +13,18 @@ chrome.runtime.onInstalled.addListener(onInstalled);
 
 // Context menu event listener
 chrome.contextMenus.onClicked.addListener(({ selectionText }) => {
-    if (!selectionText) {
-        return;
-    }
-    
-    console.log(selectionText);
+  if (!selectionText) {
+    return;
+  }
+
+  console.log(selectionText);
 });
 
 chrome.commands.onCommand.addListener((command) => {
-    if (!REGISTERED_COMMANDS_NAMES.has(command)) {
-        return;
-    }
-    
-    console.log(command);
+  if (!REGISTERED_COMMANDS_NAMES.has(command)) {
+    return;
+  }
+
+  console.log(command);
 });
 
