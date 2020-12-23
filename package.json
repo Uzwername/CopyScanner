@@ -4,8 +4,8 @@
   "description": "Copy only what is needed without searching or hand-picking.",
   "private": true,
   "scripts": {
-    "dev": "webpack serve --config=webpack.dev.js",
-    "build": "webpack --config=webpack.prod.js",
+    "dev": "webpack serve --mode=development --env development --config=webpack.dev.js",
+    "build": "webpack --mode=production --env production --config=webpack.prod.js",
     "profile": "webpack --profile --json=stats/profile.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
