@@ -1,7 +1,7 @@
 import React from "react";
 import GlobalStyles from "@/views/default-popup/styles/global-styles";
 
-const App = () => {
+const App = (): JSX.Element => {
   return (
     <div>
       <GlobalStyles />

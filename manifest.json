@@ -1,6 +1,6 @@
 {
 	"manifest_version": 2,
-	"name": "CopyScanner",
+	"name": "Copy Scanner",
 	"version": "1.0.0",
 	"description": "Copy only what is needed without searching or hand-picking.",
 	"permissions": [
@@ -11,17 +11,20 @@
 	],
 	"browser_action": {
 		"default_icon": {
-			"16": "images/icon16.png",
-			"24": "images/icon24.png",
-			"32": "images/icon32.png"
+			"16": "assets/icons/icon16.png",
+			"24": "assets/icons/icon24.png",
+			"32": "assets/icons/icon32.png"
 		},
 		"default_title": "CopyScanner",
 		"default_popup": "build/default-popup.html"
 	},
+	"content_scripts": [{
+		"js": ["build/contentScript.bundle.js"],
+		"matches": ["<all_urls>"],
+		"all_frames": true
+	}],
 	"background": {
-		"scripts": [
-			"build/background.bundle.js"
-		],
+		"scripts": ["build/background.bundle.js"],
 		"persistent": false
 	},
 	"commands": {

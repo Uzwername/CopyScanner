@@ -2,12 +2,13 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-module.exports = env => {
-  const isDevEnv = Boolean(env.development);
+module.exports = ({ development }) => {
+  const isDevEnv = Boolean(development);
   
   return {
     entry: {
       background: path.resolve(__dirname, "src/app/background/index.ts"),
+      contentScript: path.resolve(__dirname, "src/app/content-script/index.ts"),
       defaultPopup: path.resolve(__dirname, "src/views/default-popup/index.tsx"),
     },
     output: {

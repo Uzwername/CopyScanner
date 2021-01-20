@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "outDir": "./build/",
     "module": "es6",
+    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "target": "es5",
     "strict": true,
@@ -16,9 +17,5 @@
   },
   "include": [
     "src/",
-  ],
-  "exclude": [
-    "node_modules",
-    "build"
   ]
 }
