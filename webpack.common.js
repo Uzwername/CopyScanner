@@ -38,6 +38,7 @@ module.exports = ({ development }) => {
             {
               loader: "babel-loader",
               options: {
+                configFile: false,
                 presets: [
                   ["@babel/preset-env", {
                     corejs: 3,

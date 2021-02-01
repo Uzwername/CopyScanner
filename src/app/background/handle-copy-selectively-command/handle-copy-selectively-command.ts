@@ -1,8 +1,6 @@
 import { browser } from "webextension-polyfill-ts";
-// locals
 import { GET_SELECTED_TEXT } from "@/constants/messages/messages";
 import getActiveTab from "@/app/background/get-active-tab/get-active-tab";
-// types
 import { GetSelectedTextResponsePayload } from "@/app/content-script/content-script.types";
 
 const handleCopySelectivelyCommand = async (): Promise<void> => {
@@ -15,7 +13,7 @@ const handleCopySelectivelyCommand = async (): Promise<void> => {
       throw new Error("Active tab is unreachable.");
     }
     
-    if (maybeActiveTab.url && new URL(maybeActiveTab.url).protocol === "chrome:") {
+    if (!maybeActiveTab.url || new URL(maybeActiveTab.url).protocol === "chrome:") {
       throw new Error("Commands are not allowed on special pages");      
     }
     
@@ -38,7 +36,7 @@ const handleCopySelectivelyCommand = async (): Promise<void> => {
        * 1. Valuable data might be lost (@example form data).
        * 2. We are not 100% sure that reload will solve the problem in every case.
        */
-      console.error("Notification: Please reload the page");
+      console.warn("Notification: Please reload the page or use context menu instead.");
     } else if (errorMessage === "commands are not allowed on special pages") {
       /**
        * @TODO This is a special page. Please use context menu instead.

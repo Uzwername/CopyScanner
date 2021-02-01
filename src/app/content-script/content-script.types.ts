@@ -10,6 +10,8 @@ export interface GetSelectedTextResponsePayload {
   text: string,
 };
 
+type PossibleGenericOnMessageListenerCallbackReturn = GetSelectedTextResponsePayload;
+
 interface GenericOnMessageListenerCallbackArgsShape {
   request: {
     type: PossibleMessageTypes,
@@ -17,5 +19,5 @@ interface GenericOnMessageListenerCallbackArgsShape {
   sender: Runtime.MessageSender,
 };
 
-export type GenericOnMessageListenerCallback = (args: GenericOnMessageListenerCallbackArgsShape) => void;
+export type GenericOnMessageListenerCallback = (args: GenericOnMessageListenerCallbackArgsShape) => PossibleGenericOnMessageListenerCallbackReturn | void;
 

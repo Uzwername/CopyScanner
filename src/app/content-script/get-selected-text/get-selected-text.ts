@@ -2,7 +2,7 @@ import { GenericOnMessageListenerCallback } from "@/app/content-script/content-s
 
 const getSelectedText: GenericOnMessageListenerCallback = ({ request }) => {
   const { type } = request;
-  const selectedText = (window.getSelection() || "").toString();
+  const selectedText = (window.getSelection() || "").toString().trim();
 
   /**
    * all_frames flag (@see https://developer.chrome.com/docs/extensions/mv2/content_scripts/#frames) is
@@ -11,7 +11,7 @@ const getSelectedText: GenericOnMessageListenerCallback = ({ request }) => {
    * will succeed in sending the response. All other responses to that event will be ignored."
    * 
    * So, a situation when 2 content scripts in 2 different frames (both located in the active tab) try to send
-   * a response is perfectly possible. That's why it's our best interest to prevent calling `sendResponse` when it's
+   * a response is perfectly possible. That's why it's our best interest to prevent returning when it's
    * clearly not needed in order not to shadow the response with content if any. 
    */
   if (!selectedText) {

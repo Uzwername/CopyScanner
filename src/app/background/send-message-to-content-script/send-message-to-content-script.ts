@@ -1,7 +1,5 @@
 import { browser } from "webextension-polyfill-ts";
-// locals
 import getActiveTab from "@/app/background/get-active-tab/get-active-tab";
-// types
 import { SendMessageToContentScript } from "@/app/background/send-message-to-content-script/send-message-to-content-script.types";
 
 const sendMessageToContentScript: SendMessageToContentScript = async (message) => {

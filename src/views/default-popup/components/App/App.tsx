@@ -1,5 +1,6 @@
 import React from "react";
 import GlobalStyles from "@/views/default-popup/styles/global-styles";
+import Popup from "@/views/default-popup/components/Popup/Popup";
 
 const App = (): JSX.Element => {
   return (
@@ -7,7 +8,7 @@ const App = (): JSX.Element => {
       <GlobalStyles />
       <aside className="full_aside">
         <h1 className="content">
-          Hey!
+          <Popup />
         </h1>
       </aside>
     </div>

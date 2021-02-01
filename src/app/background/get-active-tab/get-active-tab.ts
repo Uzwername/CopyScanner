@@ -1,20 +1,17 @@
 import { browser, Tabs } from "webextension-polyfill-ts";
+import { runSafely } from "@/utils/utils";
 
 const getActiveTab = async (): Promise<Tabs.Tab | null> => {
   /**
-   * @throws This line may throw on its own.
+   * @TODO Find out whether, when & why this might fail
    * @see {@link https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/query#return_value}
    */
-  try {
-    const [ firstTab ] = await browser.tabs.query({ active: true, currentWindow: true });
-    
-    return firstTab;
-  } catch {
-    /**
-     * @TODO Find out whether, when & why this might fail
-     */
-    return null;
-  }
+  const tabsOrNull = await runSafely(
+    browser.tabs.query,
+    [{active: true, currentWindow: true}],
+  );
+  
+  return tabsOrNull?.length ? tabsOrNull[0] : null;
 };
 
 export default getActiveTab;

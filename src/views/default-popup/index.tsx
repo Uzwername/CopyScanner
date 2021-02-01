@@ -4,5 +4,5 @@ import App from "@/views/default-popup/components/App/App";
 
 ReactDOM.render(
   <App />,
-  document.getElementById("app")
+  document.getElementById("popup")
 );

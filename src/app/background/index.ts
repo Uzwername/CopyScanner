@@ -1,20 +1,18 @@
 import { browser } from "webextension-polyfill-ts";
-// locals
 import { COMMANDS_NAMES, COPY_SELECTIVELY } from "@/constants/commands/commands";
 import handleCopySelectivelyCommand from "@/app/background/handle-copy-selectively-command/handle-copy-selectively-command";
 import onInstalled from "./on-installed/on-installed";
-// types
 import { GenericOnCommandListenerCallback } from "@/app/background/background.types";
 
 /**
  * @TODO
+ * 0.1. Set-up eslint
  * 1. Create functions for searching for things inside the copied string
  * 2. Create a function for pasting text into clipboard.
  * 3. Create notifications system & use it on intent to copy (indicating success/fail) (content script will be required)
  * 4. Develop settings page UI
  * 5. Set-up some default values in local storage inside on-install handler, so, the extension can work out of the box
  * 6. Add actual icons
- * 7. Fix meta tags
  */
 
 // Set-up on extension activation 
@@ -26,7 +24,7 @@ browser.contextMenus.onClicked.addListener(({ selectionText }) => {
     /**
      * @TODO Emit notification: selection is empty.
      */
-    console.log("Notification: Selection is empty");
+    console.info("Notification: Selection is empty");
     return;
   }
 

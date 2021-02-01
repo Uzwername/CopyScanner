@@ -1,8 +1,6 @@
 import { browser } from "webextension-polyfill-ts";
-// locals
 import { MESSAGE_TYPES, GET_SELECTED_TEXT } from "@/constants/messages/messages";
 import getSelectedText from "@/app/content-script/get-selected-text/get-selected-text";
-// types
 import { GenericOnMessageListenerCallback } from "@/app/content-script/content-script.types";
 import { GenericRequestPayload } from "@/app/content-script/content-script.types";
 
@@ -25,7 +23,12 @@ browser.runtime.onMessage.addListener((request: GenericRequestPayload, sender) =
   }
   
   // Run the requested action
-  return Promise.resolve(
-    functionToPerform({ request, sender })
-  );
+  const response = functionToPerform({ request, sender });
+  
+  if (!response) {
+    return;
+  }
+  
+  // Return result if any
+  return Promise.resolve(response);
 });

@@ -1,6 +1,6 @@
 {
 	"manifest_version": 2,
-	"name": "Copy Scanner",
+	"name": "CopyScanner",
 	"version": "1.0.0",
 	"description": "Copy only what is needed without searching or hand-picking.",
 	"permissions": [
@@ -35,5 +35,10 @@
 				"mac": "Alt+C"
 			}
 		}
+	},
+	"icons": {
+		"16": "assets/icons/icon16.png",
+		"24": "assets/icons/icon24.png",
+		"32": "assets/icons/icon32.png"
 	}
 }

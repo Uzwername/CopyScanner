@@ -1,5 +1,4 @@
 import { browser } from "webextension-polyfill-ts";
-// locals
 import { COPY_WITH_COPY_SCANNER_CONTEXT_MENU_ID } from "@/constants/context-menus/context-menus";
 
 const onInstalled = async (): Promise<void> => {
